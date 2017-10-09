@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>deepl.api.translation</string>
+	<string>com.skoda091.deepl-translation</string>
 	<key>category</key>
 	<string>Productivity</string>
 	<key>connections</key>
@@ -70,7 +70,16 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>Changelog
+=========
+
+Version 0.0.1 – 2017-10-09
+------------------------
+
+### Features
+
+* Init release
+* Translation with `dl &lt;text&gt;`</string>
 	<key>uidata</key>
 	<dict>
 		<key>E0AC7B9B-26EF-4163-918E-5BDCF29BD1F6</key>
@@ -81,6 +90,8 @@
 			<integer>70</integer>
 		</dict>
 	</dict>
+	<key>version</key>
+	<string>0.0.1</string>
 	<key>webaddress</key>
 	<string></string>
 </dict>
