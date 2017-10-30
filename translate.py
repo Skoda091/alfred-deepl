@@ -13,15 +13,18 @@ Translate DeepL API
 """
 
 from __future__ import division, print_function, unicode_literals, absolute_import
-
 import sys
-
+import argparse
+import re
+import json    # Get args from Workflow, already in normalized Unicode
 from workflow import Workflow, web, ICON_WEB
 
 UPDATE_SETTINGS = {'github_slug': 'Skoda091/alfred-deepl'}
 
 ICON_PL = ''
 ICON_EN = ''
+
+ICON_UPDATE = 'update-available.png'
 
 # Shown in error logs. Users can find help here
 HELP_URL = 'https://github.com/Skoda091/alfred-deepl'
@@ -33,10 +36,13 @@ API_URL = 'https://deepl.com/jsonrpc'
 CACHE_MAX_AGE = 20  # seconds
 
 def main(wf):
-    import argparse
-    import re
-    import requests
-    import json    # Get args from Workflow, already in normalized Unicode
+
+    # Update available?
+    if wf.update_available:
+        wf.add_item('A newer version is available',
+                    '↩ to install update',
+                    autocomplete='workflow:update',
+                    icon=ICON_UPDATE)
 
     parser = argparse.ArgumentParser(description='Translate sentences using the DeepL API.')
     parser.add_argument('-l', '--language', default='PL', dest='lang',
@@ -55,7 +61,7 @@ def main(wf):
                     "source_lang_user_selected": "auto",
                     "target_lang": args.lang},
             "priority": 1}}
-    r = requests.post(API_URL, data=json.dumps(payload))
+    r = web.post(API_URL, data=json.dumps(payload))
     translations = json.loads(r.text)['result']['translations']
     result = ""
     for translation in translations:
@@ -67,5 +73,5 @@ def main(wf):
     wf.send_feedback()
 
 if __name__ == '__main__':
-    wf = Workflow(libraries=['./lib'])
+    wf = Workflow(libraries=['./lib'], help_url=HELP_URL, update_settings=UPDATE_SETTINGS)
     sys.exit(wf.run(main))
