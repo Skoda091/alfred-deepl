@@ -61,7 +61,8 @@ def main(wf):
     for translation in translations:
         beams = sorted(translation['beams'], key=lambda b: -1 * b['score'])
         for beam in beams:
-            wf.add_item(title=wf.decode(beam['postprocessed_sentence']), valid=True, icon=ICON_WEB)
+            item = wf.decode(beam['postprocessed_sentence'])
+            wf.add_item(title=item, valid=True, icon=ICON_WEB, arg=item)
 
     wf.send_feedback()
 

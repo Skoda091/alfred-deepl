@@ -8,8 +8,32 @@
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
+		<key>1729BB75-4768-492D-93CE-DE6C3F17F442</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>559DF99C-FC7C-40DA-8099-B84E40DA8B07</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>E0AC7B9B-26EF-4163-918E-5BDCF29BD1F6</key>
-		<array/>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1729BB75-4768-492D-93CE-DE6C3F17F442</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Skoda091</string>
@@ -68,6 +92,44 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>1729BB75-4768-492D-93CE-DE6C3F17F442</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Copied to clipboard</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>559DF99C-FC7C-40DA-8099-B84E40DA8B07</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>Changelog
@@ -82,6 +144,20 @@ Version 0.0.1 – 2017-10-09
 * Translation with `dl &lt;text&gt;`</string>
 	<key>uidata</key>
 	<dict>
+		<key>1729BB75-4768-492D-93CE-DE6C3F17F442</key>
+		<dict>
+			<key>xpos</key>
+			<integer>370</integer>
+			<key>ypos</key>
+			<integer>70</integer>
+		</dict>
+		<key>559DF99C-FC7C-40DA-8099-B84E40DA8B07</key>
+		<dict>
+			<key>xpos</key>
+			<integer>570</integer>
+			<key>ypos</key>
+			<integer>70</integer>
+		</dict>
 		<key>E0AC7B9B-26EF-4163-918E-5BDCF29BD1F6</key>
 		<dict>
 			<key>xpos</key>
