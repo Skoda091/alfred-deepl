@@ -21,6 +21,32 @@
 				<false/>
 			</dict>
 		</array>
+		<key>31811A40-15B5-4AAD-B2FE-2A42C0F00EBD</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A67E8276-2F12-4F45-9869-E8E5C4BE07AB</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>A67E8276-2F12-4F45-9869-E8E5C4BE07AB</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>530792AB-E911-4056-AC4E-3224EBF566D3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>E0AC7B9B-26EF-4163-918E-5BDCF29BD1F6</key>
 		<array>
 			<dict>
@@ -71,7 +97,7 @@
 				<key>runningsubtext</key>
 				<string>Searching DeepL…</string>
 				<key>script</key>
-				<string>/usr/bin/python translate.py "{query}"</string>
+				<string>/usr/bin/python deepl.py "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -96,7 +122,7 @@
 			<key>config</key>
 			<dict>
 				<key>autopaste</key>
-				<false/>
+				<true/>
 				<key>clipboardtext</key>
 				<string>{query}</string>
 				<key>transient</key>
@@ -130,6 +156,97 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Target lang set to: {query}</string>
+				<key>title</key>
+				<string>Show set target lang</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>530792AB-E911-4056-AC4E-3224EBF566D3</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>/usr/bin/python deepl_set_target_lang.py "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>A67E8276-2F12-4F45-9869-E8E5C4BE07AB</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>dlset</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Setting new taget language...</string>
+				<key>script</key>
+				<string>/usr/bin/python deepl_select_target_lang.py</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Set translation target language</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>31811A40-15B5-4AAD-B2FE-2A42C0F00EBD</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>Changelog
@@ -151,12 +268,33 @@ Version 0.0.1 – 2017-10-09
 			<key>ypos</key>
 			<integer>70</integer>
 		</dict>
+		<key>31811A40-15B5-4AAD-B2FE-2A42C0F00EBD</key>
+		<dict>
+			<key>xpos</key>
+			<integer>150</integer>
+			<key>ypos</key>
+			<integer>240</integer>
+		</dict>
+		<key>530792AB-E911-4056-AC4E-3224EBF566D3</key>
+		<dict>
+			<key>xpos</key>
+			<integer>570</integer>
+			<key>ypos</key>
+			<integer>240</integer>
+		</dict>
 		<key>559DF99C-FC7C-40DA-8099-B84E40DA8B07</key>
 		<dict>
 			<key>xpos</key>
 			<integer>570</integer>
 			<key>ypos</key>
 			<integer>70</integer>
+		</dict>
+		<key>A67E8276-2F12-4F45-9869-E8E5C4BE07AB</key>
+		<dict>
+			<key>xpos</key>
+			<integer>370</integer>
+			<key>ypos</key>
+			<integer>240</integer>
 		</dict>
 		<key>E0AC7B9B-26EF-4163-918E-5BDCF29BD1F6</key>
 		<dict>
