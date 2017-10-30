@@ -16,14 +16,10 @@ from __future__ import division, print_function, unicode_literals, absolute_impo
 import sys
 import argparse
 import re
-import json    # Get args from Workflow, already in normalized Unicode
+import json
 from workflow import Workflow, web, ICON_WEB
 
 UPDATE_SETTINGS = {'github_slug': 'Skoda091/alfred-deepl'}
-
-ICON_PL = ''
-ICON_EN = ''
-
 ICON_UPDATE = 'update-available.png'
 
 # Shown in error logs. Users can find help here
@@ -35,7 +31,17 @@ API_URL = 'https://deepl.com/jsonrpc'
 # How long to cache results for
 CACHE_MAX_AGE = 20  # seconds
 
+def parse_args(args):
+    parser = argparse.ArgumentParser(description='Translate sentences using the DeepL API.')
+    parser.add_argument('--set-target-language', default='EN', dest='target_lang',
+                        help="The language to translate into. Defaults to English.")
+    parser.add_argument('text', nargs='+', help="The text to be translated.", default='text')
+    return parser.parse_args(args)
+
 def main(wf):
+    args = parse_args(wf.args)
+
+    log.debug('args: '.format(args))
 
     # Update available?
     if wf.update_available:
@@ -43,12 +49,7 @@ def main(wf):
                     '↩ to install update',
                     autocomplete='workflow:update',
                     icon=ICON_UPDATE)
-
-    parser = argparse.ArgumentParser(description='Translate sentences using the DeepL API.')
-    parser.add_argument('-l', '--language', default='PL', dest='lang',
-                        help="The language to translate into. Defaults to English.")
-    parser.add_argument('text', nargs='+', help="The text to be translated.")
-    args = parser.parse_args()
+    # TODO: change from wf.args to args
     text = " ".join(wf.args)
 
     sp = re.compile("([^\.!\?;]+[\.!\?;]*)")
@@ -59,7 +60,7 @@ def main(wf):
             "jobs": [{"kind": "default", "raw_en_sentence": s} for s in sentences],
             "lang": {"user_preferred_langs": ["EN", "PL"],
                     "source_lang_user_selected": "auto",
-                    "target_lang": args.lang},
+                    "target_lang": "EN"},
             "priority": 1}}
     r = web.post(API_URL, data=json.dumps(payload))
     translations = json.loads(r.text)['result']['translations']
@@ -73,5 +74,8 @@ def main(wf):
     wf.send_feedback()
 
 if __name__ == '__main__':
-    wf = Workflow(libraries=['./lib'], help_url=HELP_URL, update_settings=UPDATE_SETTINGS)
+    wf = Workflow(libraries=['./lib'],
+                  help_url=HELP_URL,
+                  update_settings=UPDATE_SETTINGS)
+    log = wf.logger
     sys.exit(wf.run(main))
