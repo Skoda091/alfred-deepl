@@ -45,8 +45,7 @@
 			</dict>
 		</array>
 		<key>A67E8276-2F12-4F45-9869-E8E5C4BE07AB</key>
-		<array>
-		</array>
+		<array/>
 		<key>E0AC7B9B-26EF-4163-918E-5BDCF29BD1F6</key>
 		<array>
 			<dict>
@@ -249,16 +248,23 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>Changelog
-=========
+	<string># Change Log
 
-Version 0.0.1 – 2017-10-09
-------------------------
+## [1.0.0] - 2017-11-06
 
-### Features
+### Added
 
-* Init release
-* Translation with `dl &lt;text&gt;`</string>
+- Copy to clipboard
+- Post notification
+- Self update
+- Multiple target language support with keyword `dlset`
+
+## [0.0.1] - 2017-10-09
+
+### Added
+
+- Init release
+- Translation with `dl &lt;text&gt;`</string>
 	<key>uidata</key>
 	<dict>
 		<key>1729BB75-4768-492D-93CE-DE6C3F17F442</key>
@@ -310,7 +316,7 @@ Version 0.0.1 – 2017-10-09
 		<string>EN</string>
 	</dict>
 	<key>version</key>
-	<string>0.0.1</string>
+	<string>1.0.0</string>
 	<key>webaddress</key>
 	<string></string>
 </dict>
