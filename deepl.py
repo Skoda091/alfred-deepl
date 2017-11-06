@@ -17,6 +17,7 @@ import sys
 import argparse
 import re
 import json
+from plistlib import readPlist
 from workflow import Workflow, web, ICON_WEB
 
 UPDATE_SETTINGS = {'github_slug': 'Skoda091/alfred-deepl'}
@@ -40,8 +41,7 @@ def parse_args(args):
 
 def main(wf):
     args = parse_args(wf.args)
-
-    log.debug('args: '.format(args))
+    target_lang = readPlist('info.plist')['variables']['target_lang']
 
     # Update available?
     if wf.update_available:
@@ -60,7 +60,7 @@ def main(wf):
             "jobs": [{"kind": "default", "raw_en_sentence": s} for s in sentences],
             "lang": {"user_preferred_langs": ["EN", "PL"],
                     "source_lang_user_selected": "auto",
-                    "target_lang": "EN"},
+                    "target_lang": target_lang},
             "priority": 1}}
     r = web.post(API_URL, data=json.dumps(payload))
     translations = json.loads(r.text)['result']['translations']
