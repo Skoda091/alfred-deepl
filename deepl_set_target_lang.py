@@ -15,7 +15,8 @@ Translate DeepL API - set target language
 from __future__ import division, print_function, unicode_literals, absolute_import
 import sys
 import argparse
-from workflow import Workflow3
+from plistlib import readPlist, writePlist
+from workflow import Workflow
 
 def parse_args(args):
     parser = argparse.ArgumentParser()
@@ -24,14 +25,11 @@ def parse_args(args):
 
 def main(wf):
     args = parse_args(wf.args)
-    log.debug('Target language: ' + format(args.query))
-    wf.setvar('target_lang', args.query)
-    # for key, value in AVAILABLE_LANGS.iteritems():
-    #     wf.add_item(title=key, valid=True, icon=value['icon'], arg=value['iso_code'])
-
+    info = readPlist('info.plist')
+    info['variables']['target_lang'] = args.query
+    writePlist(info, 'info.plist')
     wf.send_feedback()
 
 if __name__ == '__main__':
-    wf = Workflow3(libraries=['./lib'])
-    log = wf.logger
+    wf = Workflow(libraries=['./lib'])
     sys.exit(wf.run(main))
