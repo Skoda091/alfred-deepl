@@ -16,8 +16,9 @@ Usage
 * `dlset` — Set target language fot DeepL.com translation.
 
 **Supported languages:**
+
 | Code | Language  | Icon                     |
-| ---- | --------- | -------------------------|
+| ---- | --------- | ------------------------ |
 | DE   | German    |![](/lang_icons/de.png "")|
 | EN   | English   |![](/lang_icons/en.png "")|
 | FR   | French    |![](/lang_icons/fr.png "")|
