@@ -8,9 +8,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- Copy to clipboard ([9e05388 ](../../commit/77d6e3d6c96243752caacd77100992159ae008a5))
-- Post notification ([9e05388 ](../../commit/77d6e3d6c96243752caacd77100992159ae008a5))
-- Self update ([599b807 ](../../commit/70d61d73083786ab6db950d5f12cc4c5a5da1d94))
+- Copy to clipboard ([9e05388](../../commit/77d6e3d6c96243752caacd77100992159ae008a5))
+- Post notification ([9e05388](../../commit/77d6e3d6c96243752caacd77100992159ae008a5))
+- Self update ([599b807](../../commit/70d61d73083786ab6db950d5f12cc4c5a5da1d94))
+- Self update ([599b807](../../commit/70d61d73083786ab6db950d5f12cc4c5a5da1d94))
+- Multiple target language support with keyword `dlset`([fb58298](287269467bef008fbdf29ea941cf413e0c7dbab1))
 
 ## [0.0.1] - 2017-10-09
 
