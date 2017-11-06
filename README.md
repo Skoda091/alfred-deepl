@@ -13,7 +13,20 @@ Get DeepL for Alfred from [GitHub](https://github.com/Skoda091/alfred-deepl/rele
 Usage
 -----
 
-`dl <text>` — Search DeepL.com for `<text>` translation.
+* `dlset` — Set target language fot DeepL.com translation.
+
+**Supported languages:**
+| Code | Language  | Icon                     |
+| ---- | --------- | -------------------------|
+| DE   | German    |![](/lang_icons/de.png "")|
+| EN   | English   |![](/lang_icons/en.png "")|
+| FR   | French    |![](/lang_icons/fr.png "")|
+| ES   | Spanish   |![](/lang_icons/es.png "")|
+| IT   | Italian   |![](/lang_icons/it.png "")|
+| NL   | Dutch     |![](/lang_icons/nl.png "")|
+| PL   | Polish    |![](/lang_icons/pl.png "")|
+
+* `dl <text>` — Search DeepL.com for `<text>` translation.
 
 Disclaimer
 -----
@@ -24,10 +37,11 @@ DeepL is a product from DeepL GmbH. More info: deepl.com/publisher.html
 
 To do
 -----------------
+
 * [x] Initial release
-* [ ] Errors handling
-* [ ] Updates handling
-* [ ] Multiple target languages support
+* [x] Errors handling
+* [x] Updates handling
+* [x] Multiple target languages support
 * [ ] Simultaneous translation into multiple languages
 
 Licensing, thanks
