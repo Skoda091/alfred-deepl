@@ -101,16 +101,19 @@ def main(wf):
     translations = json.loads(response.text)['result']['translations']
     target_lang = json.loads(response.text)['result']['target_lang'] or \
         target_lang
+    source_lang = json.loads(response.text)['result']['source_lang']
 
     for translation in translations:
         beams = sorted(translation['beams'], key=lambda b: -1 * b['score'])
         for beam in beams:
             item = wf.decode(beam['postprocessed_sentence'])
-            wf.add_item(
-                title=item,
-                valid=True,
-                icon=langs.AVAILABLE_LANGS[target_lang]['icon'],
-                arg=item)
+
+            subtitle = 'Translated from ' + \
+                langs.AVAILABLE_LANGS[source_lang]['name']
+            icon = langs.AVAILABLE_LANGS[target_lang]['icon']
+
+            wf.add_item(title=item, subtitle=subtitle, valid=True, icon=icon,
+                        arg=item)
 
     wf.send_feedback()
 
