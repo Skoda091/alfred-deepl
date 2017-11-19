@@ -88,15 +88,19 @@ def main(wf):
 
     args = parse_args(wf.args)
 
-    stored_target_lang = get_target_lang()
+    # Fallback if target language not set
+    if args.target_lang:
+        target_lang = args.target_lang
+    else:
+        target_lang = get_target_lang()
 
-    payload = create_payload(args.text, stored_target_lang)
-
+    # Translate
+    payload = create_payload(args.text, target_lang)
     response = call_deepl_api(payload)
 
     translations = json.loads(response.text)['result']['translations']
     target_lang = json.loads(response.text)['result']['target_lang'] or \
-        stored_target_lang
+        target_lang
 
     for translation in translations:
         beams = sorted(translation['beams'], key=lambda b: -1 * b['score'])
