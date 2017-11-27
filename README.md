@@ -28,8 +28,11 @@ Usage
 | PL   | Polish    |![](/lang_icons/pl.png "")|
 
 * `dl <text>` — Search DeepL.com for `<text>` translation.
+<<<<<<< HEAD
 
 * `<lang> <text>` — Search DeepL.com for `<text>` translation into `<lang>`.
+=======
+>>>>>>> a10c53f400c08448ca2227365083b9a414a18f34
 
 Disclaimer
 -----

@@ -784,6 +784,11 @@
 		<key>target_lang</key>
 		<string>EN</string>
 	</dict>
+	<key>variables</key>
+	<dict>
+		<key>target_lang</key>
+		<string>EN</string>
+	</dict>
 	<key>version</key>
 	<string>1.0.0</string>
 	<key>webaddress</key>
