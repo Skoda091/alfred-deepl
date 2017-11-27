@@ -29,6 +29,8 @@ Usage
 
 * `dl <text>` — Search DeepL.com for `<text>` translation.
 
+* `<lang> <text>` — Search DeepL.com for `<text>` translation into `<lang>`.
+
 Disclaimer
 -----
 
