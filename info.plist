@@ -65,7 +65,7 @@
 	<key>description</key>
 	<string>This Alfred workflow uses DeepL API for translations.</string>
 	<key>disabled</key>
-	<false/>
+	<true/>
 	<key>name</key>
 	<string>DeepL</string>
 	<key>objects</key>
