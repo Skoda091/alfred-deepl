@@ -3,8 +3,9 @@ All notable changes to this project will be documented in this file.
 Please file changes under `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed` or `Security`.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
-
 ## [Unreleased]
+
+## [1.1.0] - 2017-12-04
 
 ### Added
 
